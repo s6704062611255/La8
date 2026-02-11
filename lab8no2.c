@@ -1,9 +1,11 @@
 #include <stdio.h>
 int checkscore(char std[]);
 int Check_No1(char std[]);
+int Hard(char std[][10]);
 
-int main(){
-   
+int main()
+{
+
     char ans[8][10] = {
         {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},  // 7
         {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},  // 6
@@ -21,6 +23,7 @@ int main(){
          printf("std %d => %d\n", (i + 1), checkscore(ans[i]));
     }
     printf("No1 Correct: %d \n", Check_No1(ans));
+    printf("show no. of hardest no. %d \n", Hard(ans));
 }
 int checkscore(char std[]){
     int i ,score = 0;
@@ -44,4 +47,26 @@ int Check_No1(char std[]){
         }    
     }
     return score_no1;
+}
+
+int Hard(char std[][10]){
+    int min = 10, hard;
+    int count[10] ={0};
+    char keys[10] = {'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
+    for(int i =0 ;i<8;i++){
+        for(int j=0;j<10;j++){
+            if(std[i][j]==keys[j]){
+                count[j]++;
+            }
+        }
+    }
+
+    for(int i=0;i<10;i++){
+        if(count[i]<min){
+            min = count[i];
+            hard = i+1;
+        }
+    }
+    return hard ;
+
 }
