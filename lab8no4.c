@@ -4,13 +4,14 @@ void quicksort(int a[], int l, int r);
 void swap(int *a, int *b);
 void printArr(int a[], int size);
 void InputArr(int a[],int s);
+void Way2(int a[], int size);
 
-int main(){
+int main()
+{
     int size;
     scanf("%d",&size);
     int a[size];
     Way2(a,size);
-    
 }
 
 int partition(int a[], int l, int r){
@@ -66,7 +67,6 @@ void InputArr(int a[], int s){
 }
 
 void Way2(int a[],int size){
-    
     InputArr(a,size);
     quicksort(a,0,size-1);
     printf("Sort : ");
@@ -76,5 +76,4 @@ void Way2(int a[],int size){
     for(int i=size-3;i<size;i++){
         printf("%d ",a[i]);
     }
-
 }
